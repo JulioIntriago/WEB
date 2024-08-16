@@ -52,3 +52,9 @@ $(document).ready(function () {
         autoplayTimeout: 4000,
     })
 });
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 1200,  // Duración de la animación en milisegundos
+        once: true       // Si se establece en true, la animación se ejecutará solo una vez
+    });
+});
