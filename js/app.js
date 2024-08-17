@@ -1,7 +1,6 @@
-
-
+// Inicialización de Owl Carousel
 $(document).ready(function () {
-    //Owl
+    // Owl Carousel para el slider principal
     $('.hero-slider').owlCarousel({
         loop: true,
         margin: 0,
@@ -19,8 +18,9 @@ $(document).ready(function () {
                 nav: true,
             }
         }
-    })
+    });
 
+    // Owl Carousel para el slider de proyectos
     $('#projects-slider').owlCarousel({
         loop: true,
         nav: false,
@@ -39,8 +39,9 @@ $(document).ready(function () {
                 margin: 8,
             }
         }
-    })
+    });
 
+    // Owl Carousel para el slider de reseñas
     $('.reviews-slider').owlCarousel({
         loop: true,
         nav: false,
@@ -50,41 +51,35 @@ $(document).ready(function () {
         margin: 24,
         autoplay: true,
         autoplayTimeout: 4000,
-    })
+    });
 });
+
+// Inicialización de AOS (Animate on Scroll)
 document.addEventListener('DOMContentLoaded', function() {
     AOS.init({
         duration: 1200,  // Duración de la animación en milisegundos
         once: true       // Si se establece en true, la animación se ejecutará solo una vez
     });
 });
-// Asegúrate de incluir el script de EmailJS antes de este código
-// <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
+///EMAILS
 document.addEventListener('DOMContentLoaded', function () {
-    emailjs.init('YOUR_USER_ID'); // Reemplaza 'YOUR_USER_ID' con tu User ID de EmailJS
+    emailjs.init('T5-C3JyMUKciEdfEK'); // Reemplaza con tu User ID de EmailJS
 
-    document.getElementById('contact-form').addEventListener('submit', function (event) {
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
         event.preventDefault();
 
-        // Recoge los datos del formulario
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
         const templateParams = {
-            from_name: `${firstName} ${lastName}`,
-            from_email: email,
-            message: message
+            to_name: "Better Behavior Services",
+            from_name: `${document.getElementById('userName').value} ${document.getElementById('userLastName').value}`,
+            message: document.getElementById('userMessage').value
         };
 
-        // Enviar el correo electrónico
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-            .then(function (response) {
-                alert('Mensaje enviado con éxito!', response.status, response.text);
+        emailjs.send('service_fj33e96', 'template_7rs255p', templateParams)
+            .then(function () {
+                alert('Mensaje enviado con éxito!');
             }, function (error) {
-                alert('Ocurrió un problema al enviar el mensaje:', error);
+                console.error('Ocurrió un problema al enviar el mensaje:', error);
+                alert('Ocurrió un problema al enviar el mensaje. Revisa la consola para más detalles.');
             });
     });
 });

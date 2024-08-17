@@ -399,22 +399,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("YOUR_USER_ID"); // Reemplaza "YOUR_USER_ID" con tu ID de usuario de EmailJS
+    })();
+</script>
+
     <script>
-        (function() {
-            emailjs.init('YOUR_USER_ID'); // Reemplaza con tu User ID de EmailJS
-
-            document.getElementById('contactForm').addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-                    .then(function() {
-                        alert('Message sent successfully!');
-                    }, function(error) {
-                        alert('Failed to send message. Please try again.');
-                    });
-            });
-        })();
-
         $(document).ready(function () {
             //Owl Carousel
             $('.hero-slider').owlCarousel({
