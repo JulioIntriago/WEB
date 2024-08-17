@@ -172,12 +172,6 @@ section {
     object-fit: cover; /* Cubre el contenedor sin distorsionarse */
     z-index: 1;
     max-height: 100%; /* Asegura que el video no se estire más allá del contenedor */
-
-}
-@media (max-width: 767px) {
-    .video-container {
-        padding-top: 100%; /* Cambia la relación de aspecto para pantallas pequeñas */
-    }
 }
 
 /* Contenido superpuesto en el video */
@@ -323,15 +317,46 @@ section {
 /* Estilos para la marca en la barra de navegación */
 .navbar-brand {
     font-size: 1.5rem; /* Ajuste para pantallas pequeñas */
-    font-weight: 400;
+    font-weight: 100;
 }
 
 .navbar-brand img {
-    height: 80px;
+    height: 60px;
     background-color: rgba(255, 255, 255, 0.596); /* Fondo blanco semi-transparente */
     padding: 5px; /* Espacio alrededor del logo */
     border-radius: 5px; /* Bordes redondeados */
-    width: 300px;
+}
+
+/* Estilo para el texto de la marca */
+.brand-text {
+    font-size: 1.5rem; /* Tamaño del texto */
+    font-weight: 600; /* Grosor del texto */
+    color: var(--brand); /* Color usando la variable de la paleta */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    margin-left: 10px; /* Separación del logo */
+}
+
+/* Ajuste adicional para pantallas más grandes */
+@media (min-width: 768px) {
+    .brand-text {
+        font-size: 1.75rem; /* Ajuste de tamaño para pantallas medianas */
+    }
+
+    .navbar-brand img {
+        height: 60px;
+        width: 150px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .brand-text {
+        font-size: 2rem; /* Ajuste de tamaño para pantallas grandes */
+    }
+
+    .navbar-brand img {
+        height: 80px;
+        width: 200px;
+    }
 }
 
 /* Estilos para botones */
