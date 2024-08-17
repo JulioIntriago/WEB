@@ -161,8 +161,7 @@ section {
     padding-top: 56.25%; /* Crea una relación de aspecto 16:9 */
     overflow: hidden;
 }
-
-/* Estilos para la slide de video */
+/**/
 .video-slide {
     position: absolute;
     top: 0;
