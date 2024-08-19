@@ -83,3 +83,9 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 });
+// Configuración para cerrar el modal al hacer clic fuera
+$('#exampleModal').modal({
+    backdrop: true,
+    keyboard: true
+  });
+  

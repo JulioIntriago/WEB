@@ -23,6 +23,23 @@ body {
     overflow-x: hidden; /* Previene el desbordamiento horizontal */
 }
 
+.titulo1, .titulo2 {
+    color: #4d969b;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px; /* Espaciado inferior */
+    line-height: 1.2; /* Altura de línea */
+    text-transform: capitalize; /* Capitaliza el texto */
+}
+
+.titulo1 {
+    font-size: 2.5rem;
+}
+
+.titulo2 {
+    font-size: 2rem;
+}
+
 /* Asegura que las imágenes se adapten al tamaño de su contenedor */
 img {
     max-width: 100%; 
@@ -56,9 +73,9 @@ img {
     padding: 80px 0; /* Espaciado superior e inferior */
 }
 
-/* Agrupación de imágenes con posición relativa */
 .image-group {
     position: relative;
+    text-align: center; /* Centra el contenido dentro del grupo */
 }
 
 .image-group img {
@@ -66,59 +83,6 @@ img {
     max-width: 400px; /* Ancho máximo para las imágenes */
     box-shadow: var(--shadow); /* Sombra de la imagen */
     margin-bottom: 15px; /* Espaciado inferior */
-}
-
-/* Estilos para la primera imagen en la agrupación */
-.image-group img:first-child {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    transform: translate(-20px, -20px); /* Desplaza la imagen */
-}
-
-/* Estilos para la última imagen en la agrupación */
-.image-group img:last-child {
-    position: relative;
-    z-index: 2;
-    margin-left: 50px;
-    margin-top: 50px;
-}
-
-/* Estilo para títulos personalizados */
-.titulo1 {
-    font-size: 2.5rem;
-    color: #4d969b; /* Color personalizado */
-    font-weight: 700; /* Negrita */
-    margin-bottom: 20px; /* Espaciado inferior */
-    line-height: 1.2; /* Altura de línea */
-    text-transform: capitalize; /* Capitaliza el texto */
-    text-align: center; /* Centra el texto */
-}
-
-/* Estilos para todos los encabezados */
-h1, h2, h3, h4, h5, h6,
-.display-1, .display-2, .display-3, .display-4 {
-    font-weight: 700;
-    color: var(--dark);
-}
-
-/* Estilos de cobertura de fondo */
-.bg-cover {
-    background-size: cover; /* Cubre todo el fondo */
-    background-position: center; /* Centra la imagen de fondo */
-    background-repeat: no-repeat; /* No repite la imagen de fondo */
-}
-
-/* Estilos para enlaces */
-a {
-    color: var(--dark);
-    transition: all 0.4s ease; /* Transición suave para cambios */
-    font-weight: 500;
-}
-
-a:hover {
-    color: var(--brand); /* Cambia el color al pasar el ratón */
 }
 
 /* Estilo general para las secciones */
@@ -152,6 +116,15 @@ section {
     .hero-slider .lead {
         font-size: 1rem; /* Tamaño del texto descriptivo en pantallas pequeñas */
     }
+
+    #about .row {
+        flex-direction: column; /* Cambia la disposición de las columnas a vertical */
+        text-align: center; /* Asegura que el contenido esté centrado */
+    }
+
+    .image-group img {
+        margin: 0 auto 20px auto; /* Centra la imagen y añade un margen inferior */
+    }
 }
 
 /* Contenedor de video responsivo */
@@ -161,7 +134,7 @@ section {
     padding-top: 56.25%; /* Crea una relación de aspecto 16:9 */
     overflow: hidden;
 }
-/**/
+
 .video-slide {
     position: absolute;
     top: 0;
@@ -181,12 +154,6 @@ section {
     transform: translate(-50%, -50%); /* Centra el contenido */
     text-align: center;
     z-index: 2; /* Asegura que esté por encima del video */
-}
-
-/* Estilos para video en la slide */
-.slide video {
-    position: relative;
-    z-index: 1;
 }
 
 /* Estilos para los botones de navegación del slider */
@@ -362,6 +329,7 @@ section {
 .btn {
     padding: 8px 26px;
     font-size: 1rem; /* Ajuste del tamaño de la fuente */
+    margin-right: 10px; /* Añadir margen derecho a los botones */
 }
 
 /* Estilos para botones con la clase "btn-brand" */
@@ -745,16 +713,28 @@ input.form-control {
     height: 44px;
 }
 
-/* Estilos para los campos de formulario */
-.form-control {
-    background-color: rgba(0, 0, 0, 0.04);
-    border-color: rgba(0, 0, 0, 0.04);
+.form-group {
+    margin-bottom: 1rem;
 }
 
-/* Estilos para los campos de formulario al enfocar */
-.form-control:focus {
-    box-shadow: none;
-    border-color: var(--brand);
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.btn-group .btn {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.btn-group .btn:last-child {
+    margin-right: 0;
+}
+
+.modal-body .form-control,
+.modal-body textarea {
+    margin-bottom: 15px;
 }
 
 /* Estilos responsivos generales */
@@ -803,11 +783,6 @@ input.form-control {
         flex-direction: column;
     }
 
-    .image-group img {
-        max-width: 100%;
-        margin: 0 auto 20px auto;
-    }
-
     .service img {
         width: 100%;
         height: auto;
@@ -852,8 +827,7 @@ input.form-control {
     .navbar-brand img {
         height: 60px;
     }
-}
-@media (max-width: 767px) {
+
     footer .navbar-brand {
         font-size: 1.2rem;
     }
@@ -867,6 +841,7 @@ input.form-control {
         white-space: normal; /* Permite que el texto haga un salto de línea si es necesario */
     }
 }
+
 footer .footer-top .container {
     max-width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
     overflow: visible; /* Asegura que el contenido no se corte */
@@ -875,20 +850,27 @@ footer .footer-top .container {
 .navbar-brand {
     white-space: normal; /* Permite saltos de línea para evitar que el texto se corte */
 }
-@media (max-width: 767px) {
-    .footer-top .social-icons a {
-        margin: 0 5px; /* Ajusta el margen entre los íconos para ahorrar espacio */
-    }
-}
 
 @media (max-width: 767px) {
     .footer-top .social-icons a {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+        margin: 0 5px; /* Ajusta el margen entre los íconos para ahorrar espacio */
     }
 
     .footer-bottom p {
         font-size: 0.8rem;
     }
+}
+
+.btn-group .btn {
+    flex: 1;
+    padding: 8px 12px; /* Ajuste de padding para mejorar el espaciado */
+}
+
+.btn-group .btn + .btn {
+    margin-left: 10px; /* Añade un espacio entre los botones */
+}
+
+.btn-group .btn {
+    display: block;
+    text-align: center;
 }
