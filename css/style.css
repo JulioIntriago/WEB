@@ -853,3 +853,42 @@ input.form-control {
         height: 60px;
     }
 }
+@media (max-width: 767px) {
+    footer .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+        margin: 0 10px; /* Ajusta los márgenes para darle más espacio al texto */
+    }
+
+    .footer-top .navbar-brand {
+        white-space: normal; /* Permite que el texto haga un salto de línea si es necesario */
+    }
+}
+footer .footer-top .container {
+    max-width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    overflow: visible; /* Asegura que el contenido no se corte */
+}
+
+.navbar-brand {
+    white-space: normal; /* Permite saltos de línea para evitar que el texto se corte */
+}
+@media (max-width: 767px) {
+    .footer-top .social-icons a {
+        margin: 0 5px; /* Ajusta el margen entre los íconos para ahorrar espacio */
+    }
+}
+
+@media (max-width: 767px) {
+    .footer-top .social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+}
