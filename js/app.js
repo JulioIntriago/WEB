@@ -62,30 +62,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
-//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-
+// Evento de envío del formulario utilizando Formspree
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
 
-    const formData = {
-        firstName: document.getElementById('userName').value,
-        lastName: document.getElementById('userLastName').value,
-        email: document.getElementById('userEmail').value,
-        message: document.getElementById('userMessage').value
-    };
-
-    fetch('https://your-backend-endpoint.com/send-email', {  // Reemplaza con la URL de tu servidor
+    // Enviar el formulario a través de Formspree
+    fetch('https://formspree.io/f/xwperjer', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+            firstName: document.getElementById('userName').value,
+            lastName: document.getElementById('userLastName').value,
+            email: document.getElementById('userEmail').value,
+            message: document.getElementById('userMessage').value
+        })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
+    .then(response => {
+        if (response.ok) {
             alert('Message sent successfully!');
             document.getElementById('contactForm').reset(); // Limpia el formulario
         } else {
@@ -97,10 +92,3 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         alert('There was a problem sending the message. Check the console for more details.');
     });
 });
-
-// Configuración para cerrar el modal al hacer clic fuera
-$('#exampleModal').modal({
-    backdrop: true,
-    keyboard: true
-  });
-  
