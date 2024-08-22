@@ -126,6 +126,70 @@ section {
         margin: 0 auto 20px auto; /* Centra la imagen y añade un margen inferior */
     }
 }
+/*seccion parent training */
+#skillsets {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#skillsets .section-title {
+    font-size: 2.5rem;
+    color: #4d969b;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#skillsets .section-description {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.skillset-card {
+    padding: 30px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(53, 47, 47, 0.1);
+}
+.skillset-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.blue-bg {
+    background-color: #3196af98;
+}
+
+.red-bg {
+    background-color: #9e5c7d96;
+}
+
+.yellow-bg {
+    background-color: #ffc10785;
+}
+
+@media (max-width: 767px) {
+    .skillset-card {
+        font-size: 1rem;
+        padding: 20px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 575px) {
+    .skillset-card {
+        font-size: 0.9rem;
+        height: 100px;
+        padding: 15px;
+    }
+}
 
 /* Contenedor de video responsivo */
 .video-container {

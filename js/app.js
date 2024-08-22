@@ -74,13 +74,15 @@ document.addEventListener('DOMContentLoaded', function () {
             message: document.getElementById('userMessage').value
         };
 
-        emailjs.send('service_fj33e96', 'template_7rs255p', templateParams)
-            .then(function () {
-                alert('Mensaje enviado con éxito!');
-            }, function (error) {
-                console.error('Ocurrió un problema al enviar el mensaje:', error);
-                alert('Ocurrió un problema al enviar el mensaje. Revisa la consola para más detalles.');
-            });
+        emailjs.send('service_vokf8ns', 'template_7rs255p', templateParams)
+        .then(function () {
+            alert('Message sent successfully!');
+        }, function (error) {
+            console.error('There was an issue sending the message:', error);
+            alert('There was a problem sending the message. Check the console for more details.');
+        });
+    
+    
     });
 });
 // Configuración para cerrar el modal al hacer clic fuera
