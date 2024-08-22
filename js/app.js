@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
             message: document.getElementById('userMessage').value
         };
 
-        emailjs.send('service_vokf8ns', 'template_7rs255p', templateParams)
+        emailjs.send('service_vokf8ns', 'template_uyxeh6b', templateParams)
         .then(function () {
             alert('Message sent successfully!');
         }, function (error) {
