@@ -61,30 +61,43 @@ document.addEventListener('DOMContentLoaded', function() {
         once: true       // Si se establece en true, la animación se ejecutará solo una vez
     });
 });
-///EMAILS
-document.addEventListener('DOMContentLoaded', function () {
-    emailjs.init('T5-C3JyMUKciEdfEK'); // Reemplaza con tu User ID de EmailJS
 
-    document.getElementById('contactForm').addEventListener('submit', function (event) {
-        event.preventDefault();
 
-        const templateParams = {
-            to_name: "Better Behavior Services",
-            from_name: `${document.getElementById('userName').value} ${document.getElementById('userLastName').value}`,
-            message: document.getElementById('userMessage').value
-        };
 
-        emailjs.send('service_vokf8ns', 'template_uyxeh6b', templateParams)
-        .then(function () {
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
+
+    const formData = {
+        firstName: document.getElementById('userName').value,
+        lastName: document.getElementById('userLastName').value,
+        email: document.getElementById('userEmail').value,
+        message: document.getElementById('userMessage').value
+    };
+
+    fetch('https://your-backend-endpoint.com/send-email', {  // Reemplaza con la URL de tu servidor
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
             alert('Message sent successfully!');
-        }, function (error) {
-            console.error('There was an issue sending the message:', error);
-            alert('There was a problem sending the message. Check the console for more details.');
-        });
-    
-    
+            document.getElementById('contactForm').reset(); // Limpia el formulario
+        } else {
+            alert('There was a problem sending the message.');
+        }
+    })
+    .catch(error => {
+        console.error('There was an error:', error);
+        alert('There was a problem sending the message. Check the console for more details.');
     });
 });
+
 // Configuración para cerrar el modal al hacer clic fuera
 $('#exampleModal').modal({
     backdrop: true,
