@@ -66,29 +66,36 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
 
+    // Recoge los datos del formulario
+    const firstName = document.getElementById('userName').value;
+    const lastName = document.getElementById('userLastName').value;
+    const email = document.getElementById('userEmail').value;
+    const message = document.getElementById('userMessage').value;
+
     // Enviar el formulario a través de Formspree
-    fetch('https://formspree.io/f/xwperjer', {
+    fetch('https://formspree.io/f/mnnayzza', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            firstName: document.getElementById('userName').value,
-            lastName: document.getElementById('userLastName').value,
-            email: document.getElementById('userEmail').value,
-            message: document.getElementById('userMessage').value
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            message: message
         })
     })
     .then(response => {
+        console.log(response.status);  // Muestra el estado de la respuesta en la consola
         if (response.ok) {
             alert('Message sent successfully!');
             document.getElementById('contactForm').reset(); // Limpia el formulario
         } else {
-            alert('There was a problem sending the message.');
+            alert(`Failed to send message. Status: ${response.status}`);
         }
     })
     .catch(error => {
-        console.error('There was an error:', error);
+        console.error('There was an error:', error);  // Muestra el error en la consola
         alert('There was a problem sending the message. Check the console for more details.');
     });
 });
